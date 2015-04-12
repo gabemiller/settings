@@ -40,6 +40,7 @@ class SettingsServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        $this->package('gabemiller/settings');
 
         $this->app->singleton('GabeMiller\Settings\Settings', function($app)
         {
