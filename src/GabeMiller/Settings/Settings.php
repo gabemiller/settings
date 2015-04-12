@@ -1,8 +1,8 @@
 <?php
 namespace GabeMiller\Settings;
 
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\File;
 
 /**
  *
@@ -23,7 +23,7 @@ class Settings
     /**
      * @param Filesystem $file
      */
-    public function __construct(Filesystem $file)
+    public function __construct(File $file)
     {
         $this->file = $file;
         $this->jsonFile = Config::get('settings::settings.path') . '/' . Config::get('settings::settings.name');
