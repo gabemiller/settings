@@ -11,5 +11,10 @@
       "name": "Gabor Molnar",
       "email": "gabormolnar92@gmail.com"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": {
+      "GabeMiller\\Settings\\": "src/"
+    }
+  }
 }
