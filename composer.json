@@ -5,7 +5,6 @@
     "illuminate/support": "~5.0",
     "illuminate/filesystem": "~5.0"
   },
-  "type": "levelup-extension",
   "authors": [
     {
       "name": "Gabor Molnar",

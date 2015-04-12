@@ -40,7 +40,7 @@ class SettingsServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->singleton('Riak\Contracts\Connection', function($app)
+        $this->app->singleton('GabeMiller\Settings\Settings', function($app)
         {
             return new Settings($app['file']);
         });
