@@ -2,6 +2,8 @@
 .env.*.php
 .env.php
 /.idea
+/vendor
+composer.lock
 
 # =========================
 # Operating System Files
