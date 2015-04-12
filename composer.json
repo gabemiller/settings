@@ -1,0 +1,14 @@
+{
+    "name": "gabemiller/settings",
+    "description": "This is a settings package for laravel 5.",
+    "require": {
+        "illuminate/support": "~5.0",
+        "illuminate/filesystem": "~5.0"
+    },
+    "authors": [
+        {
+            "name": "Gabor Molnar",
+            "email": "gabormolnar92@gmail.com"
+        }
+    ]
+}
