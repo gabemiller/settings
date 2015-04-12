@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -44,7 +45,7 @@ class SettingsServiceProvider extends ServiceProvider {
 
         $this->app->singleton('GabeMiller\Settings\Settings', function($app)
         {
-            return new Settings($app['file']);
+            return new Settings(new File);
         });
     }
 
