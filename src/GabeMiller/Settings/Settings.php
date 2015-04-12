@@ -1,4 +1,6 @@
 <?php
+namespace GabeMiller\Settings;
+
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Config;
 

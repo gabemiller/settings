@@ -1,4 +1,6 @@
 <?php
+namespace GabeMiller\Settings;
+
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 
@@ -41,9 +43,8 @@ class SettingsServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->package('gabemiller/settings');
 
-        $this->app->singleton('GabeMiller\Settings\Settings', function($app)
+        $this->app->singleton('settings', function($app)
         {
             return new Settings(new File);
         });
@@ -56,6 +57,6 @@ class SettingsServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return ['GabeMiller\Settings\Settings'];
+        return ['settings'];
     }
 }
