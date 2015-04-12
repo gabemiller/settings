@@ -27,12 +27,8 @@ class SettingsServiceProvider extends ServiceProvider {
     {
 
         $this->publishes([
-            __DIR__.'/config/settings.php' => config_path('settings.php'),
+            __DIR__.'../../config/settings.php' => config_path('settings.php'),
         ]);
-
-        $this->mergeConfigFrom(
-            __DIR__.'/config/settings.php', 'settings'
-        );
 
     }
 
@@ -43,6 +39,9 @@ class SettingsServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'../../config/settings.php', 'settings'
+        );
 
         $this->app->singleton('settings', function($app)
         {
