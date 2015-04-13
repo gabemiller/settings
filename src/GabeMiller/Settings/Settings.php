@@ -54,9 +54,7 @@ class Settings
 
         $settingsArray = json_decode($this->file->get($this->jsonFile), true);
 
-        foreach ($array as $key => $value) {
-            $settingsArray[$key] = $value;
-        }
+        array_unique(array_merge($settingsArray,$array));
 
         return $this->file->put($this->jsonFile, json_encode($settingsArray));
 
