@@ -1,7 +1,6 @@
 <?php
 namespace GabeMiller\Settings;
 
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -45,7 +44,7 @@ class SettingsServiceProvider extends ServiceProvider {
 
         $this->app->singleton('settings', function($app)
         {
-            return new Settings(new Filesystem);
+            return new Settings($app['file']);
         });
     }
 
