@@ -14,7 +14,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "GabeMiller\\Settings\\": "src/"
+      "GabeMiller\\Settings": "src/"
     }
   }
 }
