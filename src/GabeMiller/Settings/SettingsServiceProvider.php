@@ -44,7 +44,7 @@ class SettingsServiceProvider extends ServiceProvider {
 
         $this->app->singleton('settings', function($app)
         {
-            return new Settings($app['file']);
+            return new Settings($app['files']);
         });
     }
 
