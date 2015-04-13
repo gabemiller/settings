@@ -56,7 +56,6 @@ class Settings
         $settingsArray = json_decode($this->file->get($this->jsonFile), true);
 
         foreach ($array as $key => $value) {
-            if (array_key_exists($key, $settingsArray))
                 $settingsArray[$key] = $value;
         }
 
