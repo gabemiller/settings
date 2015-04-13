@@ -29,9 +29,8 @@ class Settings
         $this->jsonFile = Config::get('settings.path') . '/' . Config::get('settings.name');
 
 
-
         if (!$this->file->exists($this->jsonFile))
-            $this->file->put($this->jsonFile, json_encode(['']));
+            touch($this->jsonFile);
 
     }
 
@@ -56,10 +55,10 @@ class Settings
         $settingsArray = json_decode($this->file->get($this->jsonFile), true);
 
         foreach ($array as $key => $value) {
-                $settingsArray[$key] = $value;
+            $settingsArray[$key] = $value;
         }
 
-        return $this->file->put($this->jsonFile,json_encode($settingsArray));
+        return $this->file->put($this->jsonFile, json_encode($settingsArray));
 
     }
 
