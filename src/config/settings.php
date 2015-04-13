@@ -12,5 +12,5 @@ return [
     /**
      *
      */
-    'path' => storage_path().'app/settings'
+    'path' => storage_path().'/app/settings'
 ];
