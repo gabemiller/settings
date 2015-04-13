@@ -26,7 +26,8 @@ class Settings
     public function __construct(Filesystem $file)
     {
         $this->file = $file;
-        $this->jsonFile = Config::get('settings::settings.path') . '/' . Config::get('settings::settings.name');
+        $this->jsonFile = Config::get('settings.path') . '/' . Config::get('settings.name');
+
 
 
         if (!$this->file->exists($this->jsonFile))
