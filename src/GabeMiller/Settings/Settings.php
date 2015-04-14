@@ -98,7 +98,7 @@ class Settings implements SettingsInterface
      */
     public function clear()
     {
-        $this->file->put($this->jsonArray, '');
+        $this->file->put($this->path.$this->fileName, '');
 
         $this->save();
 
