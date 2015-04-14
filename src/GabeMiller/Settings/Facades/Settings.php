@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  *
  */
-class SettingsFacade extends Facade
+class Settings extends Facade
 {
     /**
      * Get the registered name of the component.
