@@ -1,5 +1,5 @@
 <?php
-namespace GabeMiller\Settings;
+namespace GabeMiller\Settings\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
