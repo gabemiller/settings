@@ -12,9 +12,14 @@ class Settings implements SettingsInterface
 {
 
     /**
-     * @var
+     * @var Filesystem
      */
     protected $file;
+
+    /**
+     * @var
+     */
+    protected $config;
 
     /**
      * @var
@@ -27,24 +32,23 @@ class Settings implements SettingsInterface
     protected $fileName;
 
     /**
-     * @var
+     * @var string
      */
     protected $path;
 
     /**
      * @param Filesystem $file
      */
-    public function __construct(Filesystem $file)
+    public function __construct(Filesystem $file, Config $config)
     {
         $this->file = $file;
 
-        $this->path = Config::get('settings.path');
+        $this->config = $config;
 
-        if (!ends_with($this->path, '/')) {
-            $this->path = str_finish($this->path, '/');
-        }
+        $this->setPath();
 
-        $this->fileName = Config::get('settings.name');
+        $this->setFileName();
+
 
         $this->open();
 
@@ -96,7 +100,7 @@ class Settings implements SettingsInterface
      */
     public function clear()
     {
-        $this->file->put($this->path.$this->fileName, '');
+        $this->file->put($this->path . $this->fileName, '');
 
         $this->save();
 
@@ -109,9 +113,18 @@ class Settings implements SettingsInterface
      * @param $path
      * @return mixed
      */
-    public function setPath($path)
+    public function setPath($path = null)
     {
-        $this->path = $path;
+        if (is_null($path)) {
+            $this->path = $this->config->get('settings.path');
+        } else {
+            $this->path = $path;
+        }
+
+        if (!ends_with($this->path, '/')) {
+            $this->path = str_finish($this->path, '/');
+        }
+
 
         return $this;
     }
@@ -122,9 +135,13 @@ class Settings implements SettingsInterface
      * @param $fileName
      * @return mixed
      */
-    public function setFileName($fileName)
+    public function setFileName($fileName = null)
     {
-        $this->fileName = $fileName;
+        if (is_null($fileName)) {
+            $this->fileName = $this->config->get('settings.name');
+        } else {
+            $this->fileName = $fileName;
+        }
 
         return $this;
     }
@@ -174,6 +191,18 @@ class Settings implements SettingsInterface
     public function save()
     {
         $this->file->put($this->path . $this->fileName, json_encode($this->jsonArray));
+
+        return $this;
+    }
+
+    /**
+     * Remove the file.
+     *
+     * @return mixed
+     */
+    public function remove()
+    {
+        $this->file->delete($this->path . $this->fileName);
 
         return $this;
     }

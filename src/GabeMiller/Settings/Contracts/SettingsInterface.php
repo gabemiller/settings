@@ -24,6 +24,13 @@ interface SettingsInterface
     public function save();
 
     /**
+     * Remove the file.
+     *
+     * @return mixed
+     */
+    public function remove();
+
+    /**
      * Set the given keys and values in the json file.
      *
      * @param $array keys with dot notation to set the nested values
@@ -60,7 +67,7 @@ interface SettingsInterface
      * @param $path
      * @return mixed
      */
-    public function setPath($path);
+    public function setPath($path = null);
 
     /**
      * Set the new name of the file.
@@ -68,7 +75,7 @@ interface SettingsInterface
      * @param $fileName
      * @return mixed
      */
-    public function setFileName($fileName);
+    public function setFileName($fileName = null);
 
     /**
      * Get the current filename.
