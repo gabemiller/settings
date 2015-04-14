@@ -57,8 +57,6 @@ class Settings implements SettingsInterface
      */
     public function get($key)
     {
-        $this->open();
-
         return array_get($this->jsonArray, $key);
     }
 
