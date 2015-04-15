@@ -2,8 +2,8 @@
 namespace GabeMiller\Settings;
 
 use GabeMiller\Settings\Contracts\SettingsInterface;
+use Illuminate\Config\Repository;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\Config;
 
 /**
  *
@@ -39,7 +39,7 @@ class Settings implements SettingsInterface
     /**
      * @param Filesystem $file
      */
-    public function __construct(Filesystem $file, Config $config)
+    public function __construct(Filesystem $file, Repository $config)
     {
         $this->file = $file;
 
